@@ -1,0 +1,19 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "pretest": "eslint --ignore-path .gitignore .",
+    "test": "tap test.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "rponnt@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "technicalindicators": "^3.1.0"
+  }
+}
