@@ -9,8 +9,9 @@ cd test
 npm i
 node start
 ```
+```sh
+url hhttp://localhost:8081/tradingBot1
 
-url http://localhost:8081/tradingBot1
 example body
 [
   {
@@ -32,3 +33,4 @@ example response
     "DIFF": [],
     "SUM": 0
 }
+```
