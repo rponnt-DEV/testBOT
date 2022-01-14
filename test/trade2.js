@@ -46,17 +46,17 @@ function Bot1(raw) {
         checkRSI();
         this.history = new Array();
         for (let index = 14; index < this.prices.length; index++) {
-            // if(this.prices[index] >= this.trends[index-14] && this.RSIList[index-14] <= 35 && portSize > 0){
+            // if(this.prices[index] >= this.trends[index-14] && this.RSIList[index-14] <= 30 && portSize > 0){
             if( this.RSIList[index-14] <= 30 && portSize > 0){
                 //buy signal
-                this.history.push(this.prices[index]);
+                this.history.push({"prize":this.prices[index],"date":this.raw[index].date});
                 portSize = -1
 
 
-            // }else if(this.prices[index] < this.trends[index-14] && this.RSIList[index-14] >= 65 && portSize < 0){
-            }else if(this.RSIList[index-14] >= 70 && portSize < 0){
+            // }else if(this.prices[index] < this.trends[index-14] && this.RSIList[index-14] >= 70 && portSize < 0){
+            }else if(this.RSIList[index-14] >= 65 && portSize < 0){//may 70
                 //sell signal
-                this.history.push(this.prices[index]);
+                this.history.push({"prize":this.prices[index],"date":this.raw[index].date});
                 portSize = 1
             }
             
@@ -65,7 +65,7 @@ function Bot1(raw) {
     function getDiff(){
         let diffs =new Array();
         for (let index = 0; index < this.history.length-1; index++) {
-            let diff = this.history[index+1]- this.history[index]
+            let diff = this.history[index+1].prize- this.history[index].prize
             diffs.push(diff)
         }
         return diffs;
